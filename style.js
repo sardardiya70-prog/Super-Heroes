@@ -7,7 +7,7 @@ let universe = document.querySelector(".universe");
 let image = document.querySelector("img");
 
 async function user() {
-  let data = await fetch("/data.json");
+  let data = await fetch("./data.json");
   let asun = await data.json();
   return asun;
 }
