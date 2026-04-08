@@ -1,113 +1,152 @@
 * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-      body {
-        font-family: "Poppins", sans-serif;
-        background: linear-gradient(135deg, #dfcc61, #4f66e6, #cb42d4);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        min-height: 100vh;
-        padding-top: 50px;
-        color: white;
-      }
+/* 🌌 Background */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #1f3b73, #294a8a);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 60px;
+  color: white;
+}
 
-      h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 20px;
-        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-      }
+/* 🧠 Title */
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
 
-      #searchInput {
-        padding: 10px 15px;
-        width: 260px;
-        font-size: 16px;
-        border: none;
-        border-radius: 30px;
-        outline: none;
-        background: linear-gradient(135deg, #ffffff, #d9f2ff);
-        color: #8b46c7;
-        transition: 0.3s ease;
-      }
 
-      #searchBtn {
-        padding: 10px 20px;
-        margin-left: 10px;
-        border: none;
-        border-radius: 30px;
-        font-size: 16px;
-        cursor: pointer;
-        font-weight: bold;
-        color: white;
-        background: linear-gradient(135deg, #ff4e50, #f9d423);
-        transition: all 0.3s ease;
-      }
+/* 🔍 Search container */
+.search-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-      #searchBtn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-      }
-      .card {
-        margin-top: 40px;
-        width: 350px;
-        min-height: 450px;
-        border-radius: 20px;
-        background: linear-gradient(145deg, #cb7dd930, #d84fe0);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 25px;
-        color: white;
-      }
-      .card img {
-        width: 220px;
-        height: 220px;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 4px solid white;
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-        margin-bottom: 15px;
-        background: white;
-      }
-      .username {
-        font-size: 22px;
-        font-weight: 700;
-        margin-bottom: 8px;
-        text-transform: uppercase;
-        color: #ffdd00;
-      }
-      .description {
-        font-size: 16px;
-        font-style: italic;
-        text-align: center;
-        margin: 10px 0;
-        line-height: 1.5;
-      }
+/* Input */
+#searchInput {
+  padding: 14px 20px;
+  width: 320px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  background: #e5e5e5;
+  color: #023e8a;
+  transition: 0.3s;
+}
 
-      #suggestions {
-        list-style: none;
-        width: 280px;
-        background: white;
-        color: #023e8a;
-        border-radius: 8px;
-        margin-top: 5px;
-        padding: 0;
-        position: absolute;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      }
+#searchInput:focus {
+  transform: scale(1.05);
+}
 
-      #suggestions li {
-        padding: 8px 10px;
-        cursor: pointer;
-      }
+/* Button */
+#searchBtn {
+  margin-top: 15px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  transition: 0.3s;
+}
 
-      #suggestions li:hover {
-        background: #d9f2ff;
-      }
-    
+#searchBtn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+/* 📋 Suggestions */
+#suggestions {
+  list-style: none;
+  position: absolute;
+  top: 55px;
+  width: 320px;
+  background: white;
+  color: #023e8a;
+  border-radius: 10px;
+  padding: 5px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+#suggestions:empty {
+  display: none;
+}
+#suggestions li {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#suggestions li:hover {
+  background: #caf0f8;
+  padding-left: 20px;
+}
+
+/* 🧾 Card */
+.card {
+  margin-top: 50px;
+  width: 380px;
+  min-height: 500px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  text-align: center;
+  transition: 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* 🖼️ Image */
+.card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid white;
+  margin-bottom: 20px;
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.7);
+}
+
+/* 👤 Name */
+.username {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: #ffd60a;
+}
+
+/* 📝 Text */
+.description,
+.power {
+  font-size: 16px;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+/* Hide unused universe */
+.universe {
+  display: none;
+}
